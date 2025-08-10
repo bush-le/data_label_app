@@ -2,8 +2,7 @@
 
 ## 1. Overview
 
-The Product Labeler Application is a Python-based GUI tool that helps users label product images with essential information such as product name, manufacturer details, importer details, manufacturing date, expiry date, and product type.
-
+The Product Labeler Application is a Python-based GUI tool designed for labeling ground truth on product images. It enables users to accurately annotate key product information such as product name, manufacturer details, importer details, manufacturing date, expiry date, and product type. These ground truth labels provide high-quality, reliable data essential for training and validating AI models.
 The application supports:
 
 - Loading and displaying images (PNG, JPG, JPEG, HEIC).
