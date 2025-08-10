@@ -1,44 +1,55 @@
 # Product Labeler Application
 
-## Overview
+## 1. Overview
 
-Product Labeler Application là ứng dụng GUI viết bằng Python dùng để gán nhãn (label) cho hình ảnh sản phẩm với các thông tin quan trọng như tên sản phẩm, thông tin nhà sản xuất, thông tin người nhập khẩu, ngày sản xuất, ngày hết hạn và loại sản phẩm. Ứng dụng cho phép người dùng:
+The Product Labeler Application is a Python-based GUI tool that helps users label product images with essential information such as product name, manufacturer details, importer details, manufacturing date, expiry date, and product type.
 
-- Tải ảnh sản phẩm (hỗ trợ PNG, JPG, JPEG, HEIC).
-- Tự động gợi ý nhãn bằng AI Google Gemini dựa trên nội dung hình ảnh.
-- Kiểm tra tính hợp lệ dữ liệu nhập.
-- Lưu dữ liệu ảnh và thông tin vào cơ sở dữ liệu MySQL.
-- Xem danh sách sản phẩm theo loại, xem chi tiết và xóa sản phẩm.
-- Xuất dữ liệu ra file JSON có đánh dấu thời gian.
+The application supports:
 
-Ứng dụng phù hợp cho bài tập lập trình Python về thu thập dữ liệu hình ảnh, gán nhãn (ground truth), tích hợp database và xử lý lỗi.
+- Loading and displaying images (PNG, JPG, JPEG, HEIC).
+- AI-powered label suggestions using Google Gemini.
+- Input validation (phone numbers, dates, character limits, etc.).
+- Saving images and metadata into a MySQL database.
+- Viewing products by category, viewing details, and deleting entries.
+- Exporting data to timestamped JSON files.
+- Friendly error handling.
 
-## Công nghệ chính
+## 2. Main Technologies
 
-- **GUI:** Tkinter
-- **Database:** MySQL
-- **AI Suggestion:** Google Gemini API
-- **Xử lý ảnh:** Pillow (PIL)
-- **Thư viện khác:** mysql-connector-python, base64, re, json, ...
+- Python 3.12+
+- GUI: Tkinter
+- Database: MySQL
+- AI Suggestion: Google Gemini API
+- Image Handling: Pillow (PIL)
+- Supporting Libraries: mysql-connector-python, base64, re, json, python-dotenv, etc.
 
-## Tính năng chính
+## 3. Key Features
 
-- **Tải ảnh:** Chọn và hiển thị ảnh sản phẩm (PNG, JPG, JPEG, HEIC).
-- **Gợi ý AI:** Tự động điền thông tin dựa trên ảnh qua Google Gemini AI.
-- **Kiểm tra dữ liệu:**
-  - Số điện thoại (hỗ trợ định dạng 0123456789, +84123456789, có dấu gạch ngang hoặc khoảng trắng).
-  - Ngày tháng (hỗ trợ định dạng DD-MM-YYYY, DD/MM/YYYY, DD.MM.YYYY; kiểm tra ngày hết hạn >= ngày sản xuất và không quá xa tương lai).
-  - Giới hạn độ dài text và mã hóa UTF-8.
-  - Loại sản phẩm giới hạn trong các danh mục có sẵn.
-- **Lưu vào database:** Lưu ảnh (dưới dạng base64 và đường dẫn) và metadata vào MySQL, xử lý trùng lặp và lỗi.
-- **Xem dữ liệu:** Hiển thị danh sách sản phẩm theo loại, xem chi tiết, xem ảnh và xóa sản phẩm.
-- **Xuất JSON:** Xuất toàn bộ dữ liệu sang file JSON có đánh dấu thời gian.
-- **Xử lý lỗi:** Bắt lỗi file, lỗi kết nối database, lỗi nhập liệu,... với thông báo thân thiện.
+- **Image Loading:** Supports common image formats.
+- **AI Suggestions:** Auto-fill fields using Google Gemini AI.
+- **Validation:** Checks phone number formats, date formats, expiry date ≥ manufacturing date, etc.
+- **Data Storage:** Saves images as base64 along with metadata in MySQL, prevents duplicates.
+- **Data Management:** Displays products by category, detailed view, and delete option.
+- **JSON Export:** Exports all data to a JSON file with a timestamp.
+- **Error Handling:** Clear messages for input errors, database connection issues, etc.
 
-## Yêu cầu
+## 4. Installation Requirements and Configuration
 
-- Python 3.12 trở lên
-- Cài đặt các thư viện cần thiết (chạy lệnh dưới đây):
+### Configuration file `config.env`
+To securely store sensitive information like database credentials and API keys, create a file named `config.env` in the root folder of your project with the following sample content:
 
+```env
+# Database configuration
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=your_mysql_password
+MYSQL_DATABASE=product_db
+MYSQL_PORT=3306
+
+# Google Gemini API Key
+GEMINI_API_KEY=your_google_gemini_api_key
+```
+- Python 3.12 or higher
+- Install required libraries:
 ```bash
-pip install tkinter mysql-connector-python pillow google-api-python-client
+pip install tkinter mysql-connector-python pillow python-dotenv
