@@ -39,11 +39,11 @@ To securely store sensitive information like database credentials and API keys, 
 
 ```env
 # Database configuration
-MYSQL_HOST=localhost
-MYSQL_USER=root
-MYSQL_PASSWORD=your_mysql_password
-MYSQL_DATABASE=product_db
-MYSQL_PORT=3306
+MYSQLHOST=localhost
+MYSQLUSER=root
+MYSQLPASSWORD=your_mysql_password
+MYSQLDATABASE=product_db
+MYSQLPORT=3306
 
 # Google Gemini API Key
 GEMINI_API_KEY=your_google_gemini_api_key
