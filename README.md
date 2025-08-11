@@ -51,4 +51,4 @@ GEMINI_API_KEY=your_google_gemini_api_key
 - Python 3.12 or higher
 - Install required libraries:
 ```bash
-pip install tkinter mysql-connector-python pillow python-dotenv
+pip install tkinter mysql-connector-python pillow python-dotenv google-generativeai
